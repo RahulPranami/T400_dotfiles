@@ -1,0 +1,34 @@
+#! /bin/sh
+
+## Environment 
+export PATH="${PATH}:$HOME/.config/bspwm/bin"
+
+## Java Applications
+wmname LG3D
+export _JAVA_AWT_WM_NONREPARENTING
+
+picom --config ~/.config/picom/picom.conf
+
+dunst &
+
+feh --bg-fill -z ~/Pictures/wallpapers
+# wal -i ~/.config/bspwm/wallpapers
+
+# EndStartup
+
+# bspc monitor -d ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' '
+bspc monitor -d I II III IV V VI VII VIII IX X
+
+colors(){
+	foreground=#CDD6F4
+	background=#1E1E2E
+}
+colors
+
+
+bspc config focused_border_color	   "#F38BA8"
+bspc config normal_border_color		"$background"
+bspc config active_border_color		"$foreground"
+
+bspc rule -a Conky state=floating manage=off
+bspc rule -a stalonetray state=floating manage=off
